@@ -7,9 +7,15 @@
         </button>
         </form>
     </div>
-
     @foreach ($parents as $parent)
-    <div class="text-white" x-data="{ open: false }">
+    <div class="text-white" x-data="{ 
+        open: false, 
+        parentName: '{{ $parent->name }}', 
+        title: '{{ $subtitle }}',
+        filter() { 
+            return this.open || this.parentName === this.title; 
+        }
+     }">
         <div @click="open = !open" class="flex justify-between items-center hover:bg-[#283749] px-6 py-4 cursor-pointer">
         <p>{{ $parent->name }} </p>
         <svg :class="{'rotate-180': !open}" class="fill-white stroke-white transition-transform duration-200 rotate-180" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -19,7 +25,7 @@
         <!-- Child elements -->
         @if($parent->children->isNotEmpty())
             @foreach($parent->children as $child)
-                <a href="/dataku/administrator/{{ $child->slug }}" x-show="open" class="bg-[#283749] hover:bg-[#212d3b] text-sm">
+                <a href="/dataku/administrator/{{ $child->slug }}" x-show="filter()" class="bg-[#283749] hover:bg-[#212d3b] text-sm">
                     <p class="pl-12 pr-6 py-2 bg-[#283749] hover:bg-[#212d3b] text-sm">{{ $child->name }}</p>
                 </a>
             @endforeach
