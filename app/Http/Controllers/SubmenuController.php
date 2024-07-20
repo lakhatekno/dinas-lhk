@@ -54,6 +54,26 @@ class SubmenuController extends Controller {
 
         return response()->json(['message' => 'All data updated successfully']);
     }
+    public function copyData2024(Request $request) {
+        $request->validate([
+            'data' => 'required|array',
+            'data.*.kode' => 'required|string|max:3',
+            'data.*.slug' => 'required|string',
+            'data.*.data2024' => 'nullable|numeric',
+        ]);
+        
+        foreach ($request->data as $item) {
+            $data = SubmenuData::where('kode', $item['kode'])
+                            ->where('slug', $item['slug'])
+                            ->first();               
+            if ($data) {
+                $data->data2025 = $item['data2024'];
+                $data->save();
+            }
+        }
+
+        return response()->json(['message' => 'All data copied successfully']);
+    }
 
     public function export(Request $request) {
         $slug = $request->query('slug');

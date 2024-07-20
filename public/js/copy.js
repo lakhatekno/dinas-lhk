@@ -1,24 +1,22 @@
-function updateData2024() {
+function copyData2024() {
   const dataToUpdate = [];
   document.querySelectorAll('.data2024').forEach(input => {
     const kode = input.getAttribute('data-kode');
     const slug = input.getAttribute('data-slug');
     const data2024 = input.value;
-    const status = document.querySelector(`.status[data-kode="${kode}"][data-slug="${slug}"]`).value;
 
     dataToUpdate.push({
         kode: kode,
         slug: slug,
-        data2024: data2024,
-        status: status
+        data2024: data2024
     });
   });
 
-  axios.post(`/dataku/${slug}/update`, {
+  axios.post(`/dataku/${slug}/copy-to-2025`, {
     data: dataToUpdate
   })
   .then(response => {
-      alert('Data berhasil diperbarui!');
+      alert('Data berhasil disalin ke tahun 2025!')
   })
   .catch(error => {
       console.error('Error updating data:', error);

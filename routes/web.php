@@ -18,18 +18,6 @@ Route::get('/dataku', function () {
 
 Route::post('/dataku/search', [SubmenuController::class, 'search'])->name('search.submenu');
 
-// Route::get('/dataku/administrator', function () {
-//     $parents = Item::with('children')->where('parent_id', null)->get();
-//     dd($parents);
-//     return view('dashboard', [
-//         'parents' => $parents,
-//         'title' => '',
-//         'slug' => '',
-//         'subtitle' => '',
-//         'datas' => []
-//     ]);
-// });
-
 //mendapatkan data
 Route::get('/dataku/{slug}', function ($slug) {
     $parents = Item::with('children')->where('parent_id', null)->get();
@@ -57,6 +45,8 @@ Route::delete('/dataku/{slug}/delete-all', function ($slug) {
 });
 
 Route::post('/dataku/{slug}/update', [SubmenuController::class, 'updateData']);
+
+Route::post('/dataku/{slug}/copy-to-2025', [SubmenuController::class, 'copyData2024']);
 
 Route::get('/export-data-xlsx', [SubmenuController::class, 'export'])->name('export.submenu.data');
 

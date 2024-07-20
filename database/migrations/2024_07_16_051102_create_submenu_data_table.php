@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('data2022')->nullable();
             $table->float('data2023')->nullable();
             $table->float('data2024')->nullable();
+            $table->float('data2025')->nullable();
             $table->string('satuan')->nullable();
             $table->string('sifat_data')->default('Tahunan');
             $table->enum('status', ['tidak ada', 'sementara', 'tetap']);
