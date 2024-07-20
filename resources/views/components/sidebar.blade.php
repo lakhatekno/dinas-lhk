@@ -25,7 +25,7 @@
         <!-- Child elements -->
         @if($parent->children->isNotEmpty())
             @foreach($parent->children as $child)
-                <a href="/dataku/administrator/{{ $child->slug }}" x-show="filter()" class="bg-[#283749] hover:bg-[#212d3b] text-sm">
+                <a href="/dataku/{{ $child->slug }}" x-show="filter()" class="bg-[#283749] hover:bg-[#212d3b] text-sm">
                     <p class="pl-12 pr-6 py-2 bg-[#283749] hover:bg-[#212d3b] text-sm">{{ $child->name }}</p>
                 </a>
             @endforeach

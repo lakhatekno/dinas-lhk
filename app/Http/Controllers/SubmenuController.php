@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class SubmenuController extends Controller {
     public function store(Request $request) {
         $request->validate([
-            'kode' => 'required|numeric|digits:3|unique:submenu_data,kode',
+            'kode' => 'required|numeric|digits:3',
             'elemen' => 'required|string|max:255',
             'data2021' => 'nullable|numeric',
             'data2022' => 'nullable|numeric',
@@ -73,9 +73,12 @@ class SubmenuController extends Controller {
             ->orWhere('elemen', 'LIKE', "%{$keyword}%")
             ->orWhere('elemen', 'LIKE', "%{$keyword}")
             ->orWhere('elemen', 'LIKE', "{$keyword}%")
-            ->with('item')
+            ->with(['item', 'item.parent'])
             ->get();
-        dd($results);
-        return view('your_search_results_view', compact('results'));
+
+        return view('guest', [
+            'keyword' => $keyword,
+            'results' => $results
+        ]);
     }
 }

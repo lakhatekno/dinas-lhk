@@ -3,7 +3,9 @@
 use App\Models\Item;
 use App\Models\SubmenuData;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SubmenuController;
+use App\Http\Controllers\RegisterController;
 
 
 Route::get('/', function () {
@@ -16,19 +18,20 @@ Route::get('/dataku', function () {
 
 Route::post('/dataku/search', [SubmenuController::class, 'search'])->name('search.submenu');
 
-Route::get('/dataku/administrator', function () {
-    $parents = Item::with('children')->where('parent_id', null)->get();
-    return view('dashboard', [
-        'parents' => $parents,
-        'title' => '',
-        'slug' => '',
-        'subtitle' => '',
-        'datas' => []
-    ]);
-});
+// Route::get('/dataku/administrator', function () {
+//     $parents = Item::with('children')->where('parent_id', null)->get();
+//     dd($parents);
+//     return view('dashboard', [
+//         'parents' => $parents,
+//         'title' => '',
+//         'slug' => '',
+//         'subtitle' => '',
+//         'datas' => []
+//     ]);
+// });
 
 //mendapatkan data
-Route::get('/dataku/administrator/{slug}', function ($slug) {
+Route::get('/dataku/{slug}', function ($slug) {
     $parents = Item::with('children')->where('parent_id', null)->get();
     $title = Item::where('slug', $slug)->with('parent')->get();
     $submenuData = SubmenuData::with(['item.parent'])
@@ -45,13 +48,28 @@ Route::get('/dataku/administrator/{slug}', function ($slug) {
 });
 
 //menambah data
-Route::post('/dataku/administrator/store', [SubmenuController::class, 'store']);
+Route::post('/dataku/{slug}/store', [SubmenuController::class, 'store']);
 
 //hapus semua data
-Route::delete('/dataku/administrator/{slug}/delete-all', function ($slug) {
+Route::delete('/dataku/{slug}/delete-all', function ($slug) {
     SubmenuData::where('slug', $slug)->delete();
-    return redirect('/dataku/administrator/' . $slug)->with('success', 'Semua data berhasil dihapus!');
+    return redirect('/dataku/' . $slug)->with('success', 'Semua data berhasil dihapus!');
 });
 
-Route::post('/dataku/administrator/update', [SubmenuController::class, 'updateData']);
+Route::post('/dataku/{slug}/update', [SubmenuController::class, 'updateData']);
+
 Route::get('/export-data-xlsx', [SubmenuController::class, 'export'])->name('export.submenu.data');
+
+Route::get('/admin/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+Route::post('/admin/register', [RegisterController::class, 'register']);
+
+Route::post('/admin/login', [LoginController::class, 'login'])->name('login');
+
+Route::post('/admin/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dataku/administrator', function () {
+        return view('dashboard');
+    });
+});
