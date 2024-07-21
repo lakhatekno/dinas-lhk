@@ -1,7 +1,8 @@
 <aside class="flex flex-col gap-0 w-96 pt-2 bg-[#34495e]">
     <div class="px-6 py-3">
-        <form id="query" class="relative">
-            <input class="w-full bg-white rounded-lg appearance-none py-3 pl-4 pr-12 text-base text-slate-900 placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6" placeholder="Masukkan kata kunci" aria-label="Search components" type="text" value="" style="caret-color: rgb(107, 114, 128);">
+        <form action="{{ route('search.submenu') }}" method="POST" id="query" class="relative">
+            @csrf
+            <input name="keyword" id="keyword" class="w-full bg-white rounded-lg appearance-none py-3 pl-4 pr-12 text-base text-slate-900 placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6" placeholder="Masukkan kata kunci" aria-label="Search components" type="text" value="" style="caret-color: rgb(107, 114, 128);">
             <button type="submit" class="hover:cursor-pointer absolute right-4 top-3">
                 <svg class="stroke-slate-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
