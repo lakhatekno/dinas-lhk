@@ -16,7 +16,7 @@ Route::get('/dataku', function () {
     return view('search');
 });
 
-Route::post('/dataku/search', [SubmenuController::class, 'search'])->name('search.submenu');
+Route::post('/search', [SubmenuController::class, 'search'])->name('search.submenu');
 
 //mendapatkan data
 Route::get('/dataku/{slug}', function ($slug) {

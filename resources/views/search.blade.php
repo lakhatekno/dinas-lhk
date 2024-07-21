@@ -19,7 +19,13 @@
 <body class="h-full">
   <div class="min-h-screen flex items-center justify-center">
     <div class="relative flex flex-col backdrop-blur-sm backdrop-brightness-75 py-12 px-20 rounded-xl items-center justify-center gap-7 w-full ml-7 max-w-3xl transform transition-all opacity-100 scale-100" style="">
-      <img src="https://bappeda.jogjaprov.go.id/dataku/static/images/logo_jogja_dataku.png" alt="Logo Jogja Dataku" class="h-20 object-contain">
+      <div class="flex items-center justify-center gap-4">
+        <img src="https://dlhk.jogjaprov.go.id/wp-content/uploads/2023/09/Logo_DLHK-transformed-70x83.png" alt="Logo Jogja Dataku" class="h-20 object-contain">
+        <div class="flex flex-col gap-0.5">
+          <h1 class="text-white text-2xl font-bold">Dinas Lingkungan Hidup dan Kehutanan</h1>
+          <p class="text-white text-lg">Daerah Istimewa Yogyakarta</p>
+        </div>
+      </div>
       <div class="w-full" id="headlessui-dialog-panel-:r5:" data-headlessui-state="open" data-open="">
         <form action="{{ route('search.submenu') }}" method="POST" class="relative mb-3">
           @csrf
