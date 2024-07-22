@@ -18,7 +18,7 @@
       {{-- head --}}
       <div class="px-2 py-4 bg-slate-200">
         <h1 class="text-xl text-slate-500">{{ $title }}</h1>
-        <p class="font-bold text-sky-400">{{ $subtitle }}</p>
+        <p class="font-bold text-dlhk-green">{{ $subtitle }}</p>
       </div>
       {{-- buttons --}}
       
@@ -93,52 +93,52 @@
           <tbody>
             <tr class="border-b-2  border-slate-200">
               <td class="w-fit px-1 pl-2 py-4">
-                <input required type="text" id="kode" name="kode"class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input required type="text" id="kode" name="kode"class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
                 @error('kode')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input required type="text" id="elemen" name="elemen" class="border-0 border-b focus:outline-none  border-sky-500 w-44 mx-auto bg-transparent py-1 pl-1">
+                <input required type="text" id="elemen" name="elemen" class="border-0 border-b focus:outline-none  border-dlhk-green w-44 mx-auto bg-transparent py-1 pl-1">
                 @error('elemen')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input type="text" id="data2021" name="data2021" class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" id="data2021" name="data2021" class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
                 @error('data2021')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class=" w-fit px-1 pl-2 py-4">
-                <input type="text" id="data2022" name="data2022" class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" id="data2022" name="data2022" class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
                 @error('data2022')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input type="text" id="data2023" name="data2023" class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" id="data2023" name="data2023" class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
                 @error('data2023')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 py-2">
-                <input type="text" id="data2024" name="data2024" class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" id="data2024" name="data2024" class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
                 @error('data2024')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4 flex justify-center mx-auto">
-                <input value="%" type="text" name="satuan" id="satuan" class="border-0 border-b focus:outline-none  border-sky-500 w-12 mx-auto bg-transparent py-1 pl-1">
+                <input value="%" type="text" name="satuan" id="satuan" class="border-0 border-b focus:outline-none  border-dlhk-green w-12 mx-auto bg-transparent py-1 pl-1">
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input value="Tahunan" type="text" id="sifat_data" name="sifat_data" class="border-0 border-b focus:outline-none  border-sky-500 w-20 mx-auto bg-transparent py-1 pl-1">
+                <input value="Tahunan" type="text" id="sifat_data" name="sifat_data" class="border-0 border-b focus:outline-none  border-dlhk-green w-20 mx-auto bg-transparent py-1 pl-1">
                 @error('sifat_data')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 py-4">
-                <select name="status" id="status" selected="tidak ada" class="border-0 border-b focus:outline-none  border-sky-500 w-16 mx-auto bg-transparent py-1 pl-1">
+                <select name="status" id="status" selected="tidak ada" class="border-0 border-b focus:outline-none  border-dlhk-green w-16 mx-auto bg-transparent py-1 pl-1">
                   <option value="tidak ada">Tidak ada</option>
                   <option value="sementara">Sementara</option>
                   <option value="tetap">Tetap</option>
@@ -148,13 +148,13 @@
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input type="text" name="otoritas" id="otoritas" value="semua" class="capitalize border-0 border-b focus:outline-none  border-sky-500 w-16 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" name="otoritas" id="otoritas" value="semua" class="capitalize border-0 border-b focus:outline-none  border-dlhk-green w-16 mx-auto bg-transparent py-1 pl-1">
                 @error('otoritas')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
               </td>
               <td class="w-fit px-1 pl-2 py-4">
-                <input type="text" name="verifikasi" id="verifikasi" class="border-0 border-b focus:outline-none  border-sky-500 w-16 mx-auto bg-transparent py-1 pl-1">
+                <input type="text" name="verifikasi" id="verifikasi" class="border-0 border-b focus:outline-none  border-dlhk-green w-16 mx-auto bg-transparent py-1 pl-1">
                 @error('verifikasi')
                 <br><span class="text-red-500 text-xs font-light">{{ $message }}</span>
                 @enderror
@@ -185,7 +185,7 @@
           @foreach ($datas as $data)
           <tr class="border-b-2 border-slate-200">
               <td class="w-fit px-1 pl-2 py-4 font-bold">{{ $data->kode }}</td>
-              <td class="w-fit px-1 pl-2 py-4 text-sky-500 font-bold">{{ $data->elemen }}</td>
+              <td class="w-fit px-1 pl-2 py-4 text-dlhk-green font-bold">{{ $data->elemen }}</td>
               <td class="w-fit px-1 pl-2 py-4">{{ $data->data2021 }}</td>
               <td class="w-fit px-1 pl-2 py-4">{{ $data->data2022 }}</td>
               <td class="w-fit px-1 pl-2 py-4">{{ $data->data2023 }}</td>

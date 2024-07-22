@@ -29,7 +29,7 @@ class SubmenuController extends Controller {
         $submenuData = new SubmenuData($request->all());
         $submenuData->save();
 
-        return redirect("/dataku/administrator/$slug")->with('success', 'Data berhasil ditambahkan!');
+        return redirect("/dataku/$slug")->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function updateData(Request $request) {

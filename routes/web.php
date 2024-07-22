@@ -18,6 +18,17 @@ Route::get('/dataku', function () {
 
 Route::post('/search', [SubmenuController::class, 'search'])->name('search.submenu');
 
+Route::get('/explore', function() {
+    $parents = Item::with('children')->where('parent_id', null)->get();
+    return view('dashboard', [
+        'parents' => $parents,
+        'title' => '',
+        'slug' => '',
+        'subtitle' => '',
+        'datas' => []
+    ]);
+});
+
 //mendapatkan data
 Route::get('/dataku/{slug}', function ($slug) {
     $parents = Item::with('children')->where('parent_id', null)->get();
